@@ -22,20 +22,23 @@ Each line in `/etc/fstab` represents a separate filesystem entry and follows a s
 
 ### 🟢 Boot 🟢
 - **/boot/efi**
+
   ```plaintext
-UUID=AB26-AB2F                                   /boot/efi    vfat   umask=0077,noatime,errors=remount-ro     0 1
+  UUID=AB26-AB2F                                   /boot/efi    vfat   umask=0077,noatime,errors=remount-ro     0 1
   ```
 
 ### 🔵 Swap 🔵
 - **Swap Partition**
+
   ```plaintext
-UUID=3cc9ddee-50dc-4613-ace7-8c8b2feef3c9        none         swap   defaults
+  UUID=3cc9ddee-50dc-4613-ace7-8c8b2feef3c9        none         swap   defaults
   ```
 
 ### ⚫ Root ⚫
 - **/ (Root)**
+
   ```plaintext
-UUID=c1e7003e-5dd0-4833-a2c7-c25cb547ef2d        /            ext4   noatime,errors=remount-ro                0 1
+  UUID=c1e7003e-5dd0-4833-a2c7-c25cb547ef2d        /            ext4   noatime,errors=remount-ro                0 1
   ```
 
 
@@ -43,8 +46,9 @@ UUID=c1e7003e-5dd0-4833-a2c7-c25cb547ef2d        /            ext4   noatime,err
 
 ### 🟥 NTFS data partition 🟥
 - **/media/us/part_1**
+
   ```plaintext
-UUID=4CDDB17A08FB273C                            /media/u/pd20_others    ntfs3  nofail,uid=1000,gid=1000,windows_names,force   0 0
+  UUID=4CDDB17A08FB273C                            /media/u/pd20_others    ntfs3  nofail,uid=1000,gid=1000,windows_names,force   0 0
   ```
 
 
