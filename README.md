@@ -1,3 +1,4 @@
+ 
 # /etc/fstab: Static File System Information
 
 ## 🌟 Overview 🌟
@@ -20,78 +21,33 @@ Each line in `/etc/fstab` represents a separate filesystem entry and follows a s
 ## 🌐 Linux File Systems 🌐
 
 ### 🟢 Boot 🟢
-- **/boot/efi**  
+- **/boot/efi**
   ```plaintext
-  UUID=938A-C3D9  /boot/efi  vfat  defaults  0 1
+UUID=AB26-AB2F                                   /boot/efi    vfat   umask=0077,noatime,errors=remount-ro     0 1
   ```
 
 ### 🔵 Swap 🔵
-- **Swap Partition**  
+- **Swap Partition**
   ```plaintext
-  UUID=754410bd-1c33-4883-8e8b-4a4bf6b801cf  swap  swap  defaults  0 0
+UUID=3cc9ddee-50dc-4613-ace7-8c8b2feef3c9        none         swap   defaults
   ```
 
 ### ⚫ Root ⚫
-- **/ (Root)**  
+- **/ (Root)**
   ```plaintext
-  UUID=bd34e248-d688-4f2b-9f74-8e18c3f76120  /  btrfs  subvol=/@,defaults,noatime,autodefrag,discard,compress=lzo  0 2
-  ```
-- **/swap (Swap Subvolume)**  
-  ```plaintext
-  UUID=bd34e248-d688-4f2b-9f74-8e18c3f76120  /swap  btrfs  subvol=/@swap,defaults  0 0
+UUID=c1e7003e-5dd0-4833-a2c7-c25cb547ef2d        /            ext4   noatime,errors=remount-ro                0 1
   ```
 
-### 🟠 Home 🟠
-- **/home**  
-  ```plaintext
-  UUID=10e18865-b502-4fae-af32-c781ce2fdb8a  /home  btrfs  defaults,noatime,autodefrag,discard,compress=lzo  0 3
-  ```
-
-### 🟣 Others 🟣
-- **/swap/swapfile (Additional Swap File)**  
-  ```plaintext
-  /swap/swapfile  swap  swap  defaults  0 0
-  ```
-- **/tmp (Temporary Filesystem)**  
-  ```plaintext
-  tmpfs  /tmp  tmpfs  defaults,noatime,mode=1777  0 0
-  ```
 
 ## 🌐 Windows File Systems 🌐
 
-### 🟥 nvme0n1p1 (part_1) 🟥
-- **/media/us/part_1**  
+### 🟥 NTFS data partition 🟥
+- **/media/us/part_1**
   ```plaintext
-  UUID=01DABBD7BAD624D0  /media/us/part_1  ntfs-3g  defaults,uid=1000,gid=1000,permissions  0 0
+UUID=4CDDB17A08FB273C                            /media/u/pd20_others    ntfs3  nofail,uid=1000,gid=1000,windows_names,force   0 0
   ```
 
-### 🟨 nvme0n1p2 (part_2) 🟨
-- **/media/us/part_2**  
-  ```plaintext
-  UUID=01DABBD7A2ACB040  /media/us/part_2  ntfs-3g  defaults,uid=1000,gid=1000,permissions  0 0
-  ```
-
-### 🟧 nvme0n1p3 (part_3) 🟧
-- **/media/us/part_3**  
-  ```plaintext
-  UUID=01DABBD7A1D1B990  /media/us/part_3  ntfs-3g  defaults,uid=1000,gid=1000,permissions  0 0
-  ```
-
-### 🟩 nvme0n1p4 (part_4) 🟩
-- **/media/us/part_4**  
-  ```plaintext
-  UUID=01DA42E05D331FB0  /media/us/part_4  ntfs-3g  defaults,uid=1000,gid=1000,permissions  0 0
-  ```
-
-### 🟦 nvme0n1p5 (part_5) 🟦
-- **/media/us/part_5**  
-  ```plaintext
-  UUID=6DA288B407F175FE  /media/us/part_5  ntfs-3g  defaults,uid=1000,gid=1000,permissions  0 0
-  ```
 
 ## 📝 Additional Notes 📝
-- Entries prefixed with `#` are comments and are not parsed by the system.
 - The `blkid` command can be used to retrieve UUIDs for devices.
 - Care must be taken when modifying this file to avoid system instability or failure.
-
-For detailed information, see the `fstab(5)` manual page.
